@@ -34,8 +34,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.meeting8.R
+import com.example.meeting8.data.MataKuliah
 import com.example.meeting8.model.Mahasiswa
 import com.example.meeting8.model.RencanaStudi
+import com.example.meeting8.ui.widget.DynamicSelectedField
 
 @Composable
 fun RencanaStudyView(
@@ -110,7 +112,15 @@ fun RencanaStudyView(
                     fontSize = 12.sp,
                     fontWeight = FontWeight.Light)
                 Spacer(modifier = Modifier.padding(8.dp))
-
+                DynamicSelectedField(
+                    selectedValue = chosenDropdown,
+                    options = MataKuliah.options,
+                    label = "Mata Kuliah",
+                    onValueChangedEvent = {
+                        chosenDropdown = it
+                    }
+                )
+                Spacer()
             }
         }
     }
