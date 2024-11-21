@@ -159,7 +159,11 @@ fun RencanaStudyView(
                         onCheckedChange = { checked = it },
                         enabled = chosenDropdown.isNotBlank() && pilihanKelas.isNotBlank()
                     )
+                    Text("Saya menyetujui semua pernyataan yang ada tanpa ada paksaan dari pihak manapun.",
+                        fontWeight = FontWeight.Light, fontSize = 10.sp
+                    )
                 }
+                Spacer(modifier = Modifier.padding(8.dp))
             }
         }
     }
