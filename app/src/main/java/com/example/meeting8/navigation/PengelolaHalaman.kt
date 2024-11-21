@@ -23,6 +23,7 @@ enum class  Halaman {
 fun MahasiswaApp(
     modifier: Modifier = Modifier,
     mahasiswaViewModel: MahasiswaViewModel = viewModel(),
+    krsViewModel:
     navController: NavHostController = rememberNavController()
 ) {
     val mahasiswaUiState = mahasiswaViewModel.mahasiswaUiState.collectAsState().value
@@ -35,7 +36,7 @@ fun MahasiswaApp(
         composable(route = Halaman.Splash.name) {
             SplashView (onMulaiButton = {
                 navController.navigate(
-                    Halaman.MataKuliah.na
+                    Halaman.
                 )
             })
         }
