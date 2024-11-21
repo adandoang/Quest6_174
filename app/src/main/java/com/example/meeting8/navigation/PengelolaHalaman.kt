@@ -16,7 +16,9 @@ import com.example.meeting8.ui.view.viewmodel.MahasiswaViewModel
 
 enum class  Halaman {
     Splash,
-    Mahasiswa
+    Mahasiswa,
+    MataKuliah,
+    Tampil
 }
 
 @Composable
@@ -36,15 +38,21 @@ fun MahasiswaApp(
         composable(route = Halaman.Splash.name) {
             SplashView (onMulaiButton = {
                 navController.navigate(
-                    Halaman
+                    Halaman.Mahasiswa.name
                 )
             })
         }
-        composable(route = Halaman.Splash.name) {
+        composable(route = Halaman.Mahasiswa.name) {
             MahasiswaFormView(
-                onSubmitButton = {krsViewModel.save}
-            ) { }
-
+                onSubmitButton = {
+                    mahasiswaViewModel.saveDataMahasiswa(it)
+                    navController.navigate(Halaman.MataKuliah.name)
+                },
+                onBackButtonClicked = {
+                    navController.popBackStack()
+                }
+            )
         }
+
     }
 }
