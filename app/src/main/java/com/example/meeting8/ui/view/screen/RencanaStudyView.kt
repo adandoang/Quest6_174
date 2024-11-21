@@ -109,6 +109,8 @@ fun RencanaStudyView(
                 Text("Silahkan pilih Mata Kuliah yang anda inginkan",
                     fontSize = 12.sp,
                     fontWeight = FontWeight.Light)
+                Spacer(modifier = Modifier.padding(8.dp))
+
             }
         }
     }
