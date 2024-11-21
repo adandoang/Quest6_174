@@ -38,7 +38,7 @@ import com.example.meeting8.R
 
 @Composable
 fun MahasiswaFormView(
-    onSubmitButton: (MutableList<String>) -> Unit,
+    onSubmitButtonClicked: (MutableList<String>) -> Unit,
     onBackButtonClicked: () -> Unit
 ){
 
@@ -160,11 +160,11 @@ fun MahasiswaFormView(
                 Row (
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceEvenly){
-                    Button(onClick = {onBackButtonClicked},
+                    Button(onClick = {onBackButtonClicked()},
                     ) {
                         Text("Kembali")
                     }
-                    Button(onClick = {onSubmitButton}) {
+                    Button(onClick = {onSubmitButtonClicked(listdata)}) {
                         Text("Simpan")
                     }
                 }
