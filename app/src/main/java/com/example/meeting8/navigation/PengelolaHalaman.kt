@@ -13,6 +13,7 @@ import com.example.meeting8.model.RencanaStudi
 import com.example.meeting8.ui.view.screen.MahasiswaFormView
 import com.example.meeting8.ui.view.screen.RencanaStudyView
 import com.example.meeting8.ui.view.screen.SplashView
+import com.example.meeting8.ui.view.screen.TampilView
 import com.example.meeting8.ui.view.viewmodel.MahasiswaViewModel
 import com.example.meeting8.ui.view.viewmodel.RencanaStudyViewModel
 
@@ -32,6 +33,7 @@ fun MahasiswaApp(
     navController: NavHostController = rememberNavController()
 ) {
     val mahasiswaUiState = mahasiswaViewModel.mahasiswaUiState.collectAsState().value
+    val krsStateUi = krsViewModel.krsStateUi.collectAsState().value
 
     NavHost(
         navController = navController,
@@ -57,10 +59,21 @@ fun MahasiswaApp(
             )
         }
         composable(route = Halaman.MataKuliah.name) {
-            RencanaStudyView(
+            RencanaStudyView (
                 mahasiswa = mahasiswaUiState,
-                onSubmitButtonClicked = { krsViewModel.saveDataKRS(it)},
+                onSubmitButtonClicked = { krsViewModel.saveDataKRS(it)
+                navController.navigate(Halaman.Tampil.name)},
                 onBackButtonClicked = {navController.popBackStack()}
+            )
+        }
+
+        composable(route = Halaman.Tampil.name) {
+            TampilView(
+                mhs = mahasiswaUiState,
+                rs = krsStateUi,
+                onBackButtonClicked = {
+                    navController.popBackStack()
+                }
             )
         }
     }
