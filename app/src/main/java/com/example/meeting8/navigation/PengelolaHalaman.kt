@@ -71,8 +71,10 @@ fun MahasiswaApp(
             TampilView(
                 mhs = mahasiswaUiState,
                 rs = krsStateUi,
-                onBackButtonClicked = {
-                    navController.popBackStack()
+                onSelesaiButtonClicked = {
+                    navController.navigate(Halaman.Splash.name){
+                        popUpTo(0)
+                    }
                 }
             )
         }

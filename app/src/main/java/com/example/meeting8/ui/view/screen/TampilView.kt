@@ -19,41 +19,34 @@ import com.example.meeting8.model.RencanaStudi
 fun TampilView (
     mhs: Mahasiswa,
     rs: RencanaStudi,
-    onBackButtonClicked: () -> Unit
+    onSelesaiButtonClicked: () -> Unit
 ) {
     Column(modifier = Modifier.fillMaxSize()) {
         TampilData(
             judul = "NIM",
             isinya = mhs.nim
         )
-    }
-    Column(modifier = Modifier.fillMaxSize()) {
         TampilData(
             judul = "Nama",
             isinya = mhs.nama
         )
-    }
-    Column(modifier = Modifier.fillMaxSize()) {
         TampilData(
             judul = "email",
             isinya = mhs.email
         )
-    }
-    Column(modifier = Modifier.fillMaxSize()) {
         TampilData(
             judul = "Mata Kuliah",
             isinya = rs.namaMK
         )
-    }
-    Column(modifier = Modifier.fillMaxSize()) {
         TampilData(
             judul = "Kelas",
             isinya = rs.kelas
         )
+        Button(onClick = {onSelesaiButtonClicked()}, modifier = Modifier.fillMaxWidth().padding(5.dp)) {
+            Text("Selesai")
+        }
     }
-    Button(onClick = {onBackButtonClicked()}, modifier = Modifier.fillMaxWidth().padding(5.dp)) {
-        Text("Back")
-    }
+
 }
 
 @Composable
